@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+
+<html lang="no" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8" />
+	<title>Tall</title>
+	<style>
+
+		div {
+			width: 20px;
+			height: 20px;
+			color: darkorange;
+			Background: greenyellow;
+			border: solid darkorange 2px;
+			margin: 5px;
+			padding: 12px;
+			float: left;
+			text-align: center;
+		}
+
+			div.førstPåLinja {
+				clear: left;
+			}
+	</style>
+</head>
+
+<body>
+
+	<div id="r1k1" onclick="trykk(this,'r1k2','r2k1','r1k2','r2k1')">5</div>
+	<div id="r1k2" onclick="trykk(this,'r1k1','r1k3','r2k2','r2k2')">2</div>
+	<div id="r1k3" onclick="trykk(this,'r1k2','r2k3','r1k2','r2k3')">7</div>
+
+	<div id="r2k1" class="førstPåLinja" onclick="trykk(this,'r1k1','r2k2','r3k1','r3k1')">1</div>
+	<div id="r2k2" onclick="trykk(this,'r1k2','r2k1','r2k3','r3k2')"></div>
+	<div id="r2k3" onclick="trykk(this,'r1k3','r2k2','r3k3','r3k3')">3</div>
+
+	<div id="r3k1" class="førstPåLinja" onclick="trykk(this,'r2k1','r3k2','r2k1','r3k2')">8</div>
+	<div id="r3k2" onclick="trykk(this,'r3k1','r2k2','r3k3','r3k3')">6</div>
+	<div id="r3k3" onclick="trykk(this,'r3k2','r2k3','r3k2','r2k3')">4</div>
+
+	<script>
+
+	
+		function riktig() {
+			if (document.getElementById("r1k1").innerHTML == '1') {
+				alert("du klarte det");
+			}
+		}
+
+		function trykk(tagElement, alt1, alt2, alt3, alt4) {
+
+			if (document.getElementById(alt1).innerHTML == '') {
+				document.getElementById(alt1).innerHTML = tagElement.innerHTML;
+				tagElement.innerHTML = '';
+
+			}
+
+			if (document.getElementById(alt2).innerHTML == '') {
+				document.getElementById(alt2).innerHTML = tagElement.innerHTML;
+				tagElement.innerHTML = '';
+
+			}
+
+			if (document.getElementById(alt3).innerHTML == '') {
+				document.getElementById(alt3).innerHTML = tagElement.innerHTML;
+				tagElement.innerHTML = '';
+
+			}
+
+			if (document.getElementById(alt4).innerHTML == '') {
+				document.getElementById(alt4).innerHTML = tagElement.innerHTML;
+				tagElement.innerHTML = '';
+
+			}
+
+
+		}
+
+
+	</script>
+</body>
+</html>
