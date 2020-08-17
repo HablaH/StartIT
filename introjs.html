@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <title>Quiz</title>
+    <meta name="author" content="Your Name">
+    <meta name="description" content="Example description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="">
+    <link rel="icon" type="image/x-icon" href="" />
+    <style>
+        div.result {
+            background-color: yellow;
+        }
+        
+        table.kode td {
+            border: 1px solid black;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+        }
+        
+        table.kode td:hover {
+            border: 1px dashed red;
+            background: rgb(185, 185, 185);
+        }
+    </style>
+</head>
+
+<body>
+    <header>Spørsmål</header>
+    <main>
+
+        <!--spørsmål og svar-->
+        <div>
+            <h1>Spørsmål 1</h1>
+            <h2>Hva er Norges høyeste fjell?</h2>
+            <button id="s1a" onclick="document.getElementById('target1').innerHTML = 'FEIL'">a: Glittertind</button>
+            <button id="s1b" onclick="document.getElementById('target1').innerHTML = 'RETT'">b: Gallhøpiggen</button>
+            <button id="s1c" onclick="document.getElementById('target1').innerHTML = 'FEIL'">c: Gaustadtoppen</button>
+            <p id="target1" onchange="ans()"></p>
+
+        </div>
+        <hr/>
+        <!-- o og x change tabell-->
+        <div>
+
+            <table>
+                <tr>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                </tr>
+                <tr>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                </tr>
+                <tr>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                </tr>
+                <tr>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                </tr>
+                <tr>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                </tr>
+                <tr>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                    <td onmouseover="change(this)">o</td>
+                </tr>
+            </table>
+        </div>
+        <hr/>
+        <!--"kodelås"-->
+        <div>
+            <table class="kode">
+                <tr>
+                    <td id="a" onclick="trykk(this.innerText)">1</td>
+                    <td id="b" onclick="trykk(this.innerText)">2</td>
+                    <td id="c" onclick="trykk(this.innerText)">3</td>
+                </tr>
+                <tr>
+                    <td id="d" onclick="trykk(this.innerText)">4</td>
+                    <td id="e" onclick="trykk(this.innerText)">5</td>
+                    <td id="f" onclick="trykk(this.innerText)">6</td>
+                </tr>
+                <tr>
+                    <td id="g" onclick="trykk(this.innerText)">7</td>
+                    <td id="h" onclick="trykk(this.innerText)">8</td>
+                    <td id="i" onclick="trykk(this.innerText)">9</td>
+                </tr>
+            </table>
+            <div class="result">resultat
+                <p id="result"></p>
+            </div>
+        </div>
+
+    </main>
+    <footer></footer>
+
+    <script>
+        /*kodelås*/
+        var result = null
+
+        function trykk(tall) {
+            document.getElementById('result').innerHTML += tall;
+        }
+
+
+        /*bytter o til x og x til o*/
+        function change(denne) {
+            if (denne.innerHTML == "o") {
+                denne.innerHTML = "x"
+            } else {
+                denne.innerHTML = "o"
+            }
+        }
+    </script>
+</body>
+
+</html>
