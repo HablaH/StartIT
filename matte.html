@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <h1>Her kan du sette størrelse på kvadratet med sliders og få areal og omkrets</h1>
+    <div> heigth:
+        <input id="rheight" type="range" min="1" max="1000" step="1" value="500" oninput="show()" />
+    </div>
+
+    <div> width:
+        <input id="rwidth" type="range" min="1" max="1000" step="1" value="500" oninput="show()" />
+    </div>
+
+    <div id="showbox"></div>
+
+    <div id="showvalue"></div>
+
+
+    <script>
+        var bheight = document.getElementById('rheight');
+        var bwidth = document.getElementById('rwidth');
+
+        var showDivG = document.getElementById('showbox');
+        var showDivV = document.getElementById('showvalue');
+
+        function show() {
+            var height = bheight.value;
+            var width = bwidth.value;
+
+            var h = 'height: ' + height + 'px;';
+            var w = 'width=" ' + width + 'px;';
+            var style = 'style= background-color: red;' + w + h;
+            showDivG.innerHTML = '<div ' + style + '></div>'
+            showDivV.innerText = showDivG.innerHTML;
+        }
+    </script>
+</body>
+
+</html>
