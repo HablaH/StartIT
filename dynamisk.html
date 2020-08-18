@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>dynamisk oppsett</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <h1>Her kan du endre på boksen dynamisk</h1>
+
+    <!--størrelse-->
+    <div>size:
+        <input id="sslider" type="range" min="100" max="500" step="10" oninput="showDiv()" />
+    </div>
+    <br/>
+
+    <!--farge-->
+    <div>text input:
+        <input id="textIn" type="text" oninput="showDiv()" value="skriv noe her" /> color-selector:
+        <select name="" id="selector" onchange="showDiv()">
+            <option selected value="orange">Orange color</option>
+            <option value="purple">Purple color</option>
+            <option value="green">Green color</option>
+            <option value="magenta">Magenta color</option>
+    </select>
+    </div>
+    <!--ramme-->
+    <div>border size:
+        <input id="bslider" type="range" min="0" max="15" step="1" oninput="showDiv()" /> border color:
+        <select name="" id="bcolor" onchange="showDiv()">
+            <option selected value="red">Red color</option>
+            <option value="blue">Blue color</option>
+            <option value="green">Green color</option>
+            <option value="black">Black color</option>
+        </select> border type:
+        <select name="" id="btype" onchange="showDiv()">
+            <option selected value="dotted">Dotted</option>
+            <option value="dashed">Dashed</option>
+            <option value="solid">Solid</option>
+            <option value="double">Double</option>
+    </select>
+    </div>
+    <!--resultat-->
+    <div id="result"></div>
+
+    <!--resultat i HTML-->
+    <div id="resultHtml" style="font-family: 'Courier New', Courier, monospace;"></div>
+
+    <script>
+        /*setter snarvar*/
+        var resultDiv = document.getElementById('result');
+        var resultHtmlDiv = document.getElementById('resultHtml');
+        var slider = document.getElementById('sslider');
+        var textIn = document.getElementById('textIn');
+        var selector = document.getElementById('selector');
+        var borderSize = document.getElementById('bslider');
+        var borderColor = document.getElementById('bcolor');
+        var borderType = document.getElementById('btype');
+
+        /*resultat funksjon*/
+
+        function showDiv() {
+            var size = slider.value;
+            var text = textIn.value;
+            var color = selector.value;
+            var bS = borderSize.value;
+            var bC = borderColor.value;
+            var bT = borderType.value;
+
+            var backroundColor = 'background-color: ' + color + ';';
+            var width = 'width: ' + size + 'px;';
+            var height = 'height: ' + size + 'px;';
+            var border = 'border: ' + bS + 'px ' + bC + ' ' + bT + ';';
+
+
+            var style = 'style="' + backroundColor + width + height + border + '"';
+            resultDiv.innerHTML = '<div ' + style + '>' + text + '</div>';
+            resultHtmlDiv.innerText = resultDiv.innerHTML;
+        }
+    </script>
+</body>
+
+</html>
