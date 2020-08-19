@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>styleChange</title>
+    <style>
+        .stilig0 {
+            background-color: blueviolet;
+        }
+        .stilig1 {
+            border: 2px inset orangered;
+
+        }
+        .stilig2 {
+            font-family: monospace;
+            text-align: center;
+        }
+        .stilig3 {
+            color: darkseagreen;
+        }
+        .stilig4 {
+            height: 128px;
+            width: 128px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div id="bla0" onclick="select(bla0)">Bla bla bla</div>
+        <div id="bla1" onclick="select(bla1)">Bla bla bla</div>
+        <div id="bla2" onclick="select(bla2)">Bla bla bla</div>
+        <div id="bla3" onclick="select(bla3)">Bla bla bla</div>
+        <div id="bla4" onclick="select(bla4)">Bla bla bla</div>
+    </div>
+
+    <div>
+        <input id="chk0" type="checkbox" onchange="toggleStyle0()" />
+        <input id="chk1" type="checkbox" onchange="toggleStyle1()" />
+        <input id="chk2" type="checkbox" onchange="toggleStyle2()" />
+        <input id="chk3" type="checkbox" onchange="toggleStyle3()" />
+        <input id="chk4" type="checkbox" onchange="toggleStyle4()" />
+    </div>
+    <script>
+        function select() {
+            document.getElementById('bla0').classList.toggle('selected')
+            document.getElementById('bla1').classList.toggle('selected')
+            document.getElementById('bla2').classList.toggle('selected')
+            document.getElementById('bla3').classList.toggle('selected')
+            document.getElementById('bla4').classList.toggle('selected')
+        }
+        function toggleStyle0() {
+            var isChecked = document.getElementById('chk0').checked;
+            document.getElementById('selected').classList.toggle('stilig0', isChecked);
+        }
+        function toggleStyle1() {
+            var isChecked = document.getElementById('chk1').checked;
+            document.getElementById('selected').classList.toggle('stilig1', isChecked);
+        }
+        function toggleStyle2() {
+            var isChecked = document.getElementById('chk2').checked;
+            document.getElementById('selected').classList.toggle('stilig2', isChecked);
+        }
+        function toggleStyle3() {
+            var isChecked = document.getElementById('chk3').checked;
+            document.getElementById('selected').classList.toggle('stilig3', isChecked);
+        }
+        function toggleStyle4() {
+            var isChecked = document.getElementById('chk4').checked;
+            document.getElementById('selected').classList.toggle('stilig4', isChecked);
+        }
+    </script>
+</body>
+</html>

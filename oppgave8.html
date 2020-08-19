@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+<style>
+    div.resultStyle {
+        
+        
+    }
+
+</style>
+</head>
+
+<body onload="randomSize()">
+
+    <div class="resultStyle" id="result">
+    <div id="resultHtml"></div>
+    </div>
+    
+
+
+    <script>
+
+        var resultDiv = document.getElementById('result');
+        var resultHtmlDiv = document.getElementById('resultHtml');
+
+        function randomSize() {
+            var x = 128 + Math.floor(Math.random() * 1000);
+            var y = 128 + Math.floor(Math.random() * 1000);
+            var b = Math.floor(Math.random() * 50);
+
+            var c = ['red', 'blue', 'orange', 'yellow', 'snow' , 'teal' , 'khaki' , 'cyan' , 'tan' ];
+            resultDiv.style.backgroundColor = c[Math.floor(Math.random() * c.length)];
+            resultDiv.style.width = x + 'px';
+            resultDiv.style.height = y + 'px';
+            resultDiv.style.border = b + 'px ' + 'solid ' + 'black';
+
+
+            resultHtmlDiv.innerText = 'dimensions:' + x + ' * ' +  y + ' border:' + b;
+
+
+        }
+
+    </script>
+</body>
+
+
+</html>
