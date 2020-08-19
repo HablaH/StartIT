@@ -27,11 +27,11 @@
 </head>
 <body>
     <div>
-        <div id="bla0" onclick="select(bla0)">Bla bla bla</div>
-        <div id="bla1" onclick="select(bla1)">Bla bla bla</div>
-        <div id="bla2" onclick="select(bla2)">Bla bla bla</div>
-        <div id="bla3" onclick="select(bla3)">Bla bla bla</div>
-        <div id="bla4" onclick="select(bla4)">Bla bla bla</div>
+        <div id="bla0" onclick="select0()">Bla bla bla</div>
+        <div id="bla1" onclick="select1()">Bla bla bla</div>
+        <div id="bla2" onclick="select2()">Bla bla bla</div>
+        <div id="bla3" onclick="select3()">Bla bla bla</div>
+        <div id="bla4" onclick="select4()">Bla bla bla</div>
     </div>
 
     <div>
@@ -42,11 +42,19 @@
         <input id="chk4" type="checkbox" onchange="toggleStyle4()" />
     </div>
     <script>
-        function select() {
+        function select0() {
             document.getElementById('bla0').classList.toggle('selected')
+        }
+        function select1() {
             document.getElementById('bla1').classList.toggle('selected')
+        }
+        function select2() {
             document.getElementById('bla2').classList.toggle('selected')
+        }
+        function select3() {
             document.getElementById('bla3').classList.toggle('selected')
+        }
+        function select4() {
             document.getElementById('bla4').classList.toggle('selected')
         }
         function toggleStyle0() {
