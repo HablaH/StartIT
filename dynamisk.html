@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -60,26 +60,25 @@
         /*setter snarvar*/
         var resultDiv = document.getElementById('result');
         var resultHtmlDiv = document.getElementById('resultHtml');
-        var slider = document.getElementById('sslider');
+        //var slider = document.getElementById('sslider');
         var textIn = document.getElementById('textIn');
-        var selector = document.getElementById('selector');
+        //var selector = document.getElementById('selector');
         var borderSize = document.getElementById('bslider');
         var borderColor = document.getElementById('bcolor');
         var borderType = document.getElementById('btype');
-
         /*resultat funksjon*/
 
         function showDiv() {
             var size = slider.value;
             var text = textIn.value;
-            var color = selector.value;
+            //var color = selector.value;
             var bS = borderSize.value;
             var bC = borderColor.value;
             var bT = borderType.value;
 
-            var backroundColor = 'background-color: ' + color + ';';
-            var width = 'width: ' + size + 'px;';
-            var height = 'height: ' + size + 'px;';
+            var backroundColor = 'background-color: ' + selector.value + ';';
+            var width = 'width: ' + sslider.value + 'px;';
+            var height = 'height: ' + sslider.value + 'px;';
             var border = 'border: ' + bS + 'px ' + bC + ' ' + bT + ';';
 
 

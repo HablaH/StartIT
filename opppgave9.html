@@ -5,6 +5,10 @@
     <meta charset="utf-8" />
     <title>styleChange</title>
     <style>
+        body {
+            margin: 0;
+            background-color: lightgreen;
+        }
         .stilig0 {
             background-color: blueviolet;
         }
@@ -17,65 +21,357 @@
             text-align: center;
         }
         .stilig3 {
-            color: darkseagreen;
+            color: darkmagenta;
         }
         .stilig4 {
-            height: 128px;
-            width: 128px;
+            margin:auto;
+            height: 80%;
+            width: 75%;
+        }
+        div.selected::before {
+            content: "🡆";
+        }
+
+        div.selected::after {
+            content: "🡄";
+        }
+        .box {
+            display: grid;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: darkseagreen;
+            height: 90vh;
+            width: 55vw;
+            grid-template-columns: 90% 10%;
+            grid-template-areas: 'boxch chkbox' 'boxch chkbox' 'boxch chkbox' 'boxch chkbox' 'boxch chkbox'
+        }
+        #bla0 #bla1 #bla2 #bla3 #bla4 {
+        grid-area:boxch;
+        }
+        
+        h1 {
+            text-align:center;
+            font-size:200%;
+        }
+        .chkbox {
+            grid-area:chkbox;
+            margin:auto;
+            background-color:aquamarine;            
+        }
+        .chkbox p {
+            border:solid black 1px;
         }
     </style>
 </head>
 <body>
-    <div>
-        <div id="bla0" onclick="select0()">Bla bla bla</div>
-        <div id="bla1" onclick="select1()">Bla bla bla</div>
-        <div id="bla2" onclick="select2()">Bla bla bla</div>
-        <div id="bla3" onclick="select3()">Bla bla bla</div>
-        <div id="bla4" onclick="select4()">Bla bla bla</div>
+    <h1>Div changes</h1>
+    <div class="box">
+        
+            <div id="bla0" onclick="select0(this)">Bla bla bla</div>
+            <div id="bla1" onclick="select1(this)">Bla bla bla</div>
+            <div id="bla2" onclick="select2(this)">Bla bla bla</div>
+            <div id="bla3" onclick="select3(this)">Bla bla bla</div>
+            <div id="bla4" onclick="select4(this)">Bla bla bla</div>
+
+        
+            <div class="chkbox">
+                <p>Stil 1:<input id="chk0" type="checkbox" onchange="toggleStyle0()" /></p>
+                <p>Stil 2:<input id="chk1" type="checkbox" onchange="toggleStyle1()" /></p>
+                <p>Stil 3:<input id="chk2" type="checkbox" onchange="toggleStyle2()" /></p>
+                <p>Stil 4:<input id="chk3" type="checkbox" onchange="toggleStyle3()" /></p>
+                <p>Stil 5:<input id="chk4" type="checkbox" onchange="toggleStyle4()" /></p>
+            </div>
+       
     </div>
 
-    <div>
-        <input id="chk0" type="checkbox" onchange="toggleStyle0()" />
-        <input id="chk1" type="checkbox" onchange="toggleStyle1()" />
-        <input id="chk2" type="checkbox" onchange="toggleStyle2()" />
-        <input id="chk3" type="checkbox" onchange="toggleStyle3()" />
-        <input id="chk4" type="checkbox" onchange="toggleStyle4()" />
-    </div>
+    
     <script>
+        //var blas = document.querySelectorAll("#bla0, #bla1, #bla2, #bla3, #bla4");
+        var bla0 = document.getElementById('bla0').classList;
+        var bla1 = document.getElementById('bla1').classList;
+        var bla2 = document.getElementById('bla2').classList;
+        var bla3 = document.getElementById('bla3').classList;
+        var bla4 = document.getElementById('bla4').classList;
+
+        var chk0 = document.getElementById('chk0')
+        var chk1 = document.getElementById('chk1')
+        var chk2 = document.getElementById('chk2')
+        var chk3 = document.getElementById('chk3')
+        var chk4 = document.getElementById('chk4')
+
+        //div-selected + checkboxcheck
         function select0() {
-            document.getElementById('bla0').classList.toggle('selected')
+            bla0.toggle('selected');
+            chkTrue0();
         }
         function select1() {
-            document.getElementById('bla1').classList.toggle('selected')
+            bla1.toggle('selected');
+            chkTrue1();
         }
         function select2() {
-            document.getElementById('bla2').classList.toggle('selected')
+            bla2.toggle('selected');
+            chkTrue2();
         }
         function select3() {
-            document.getElementById('bla3').classList.toggle('selected')
+            bla3.toggle('selected');
+            chkTrue3();
         }
         function select4() {
-            document.getElementById('bla4').classList.toggle('selected')
+            bla4.toggle('selected');
+            chkTrue4();
         }
+
+        //checkboxcheck
+        function chkTrue0() {
+            if (bla0.contains('stilig0')) {
+                chk0.checked = true;
+            }
+            else {
+                chk0.checked = false;
+            }
+            if (bla0.contains('stilig1')) {
+                chk1.checked = true;
+            }
+            else {
+                chk1.checked = false;
+            }
+            if (bla0.contains('stilig2')) {
+                chk2.checked = true;
+            }
+            else {
+                chk2.checked = false;
+            }
+            if (bla0.contains('stilig3')) {
+                chk3.checked = true;
+            }
+            else {
+                chk3.checked = false;
+            }
+            if (bla0.contains('stilig4')) {
+                chk4.checked = true;
+            }
+            else {
+                chk4.checked = false;
+            }
+        }
+        function chkTrue1() {
+            if (bla1.contains('stilig0')) {
+                chk0.checked = true;
+            }
+            else {
+                chk0.checked = false;
+            }
+            if (bla1.contains('stilig1')) {
+                chk1.checked = true;
+            }
+            else {
+                chk1.checked = false;
+            }
+            if (bla1.contains('stilig2')) {
+                chk2.checked = true;
+            }
+            else {
+                chk2.checked = false;
+            }
+            if (bla1.contains('stilig3')) {
+                chk3.checked = true;
+            }
+            else {
+                chk3.checked = false;
+            }
+            if (bla1.contains('stilig4')) {
+                chk4.checked = true;
+            }
+            else {
+                chk4.checked = false;
+            }
+        }
+        function chkTrue2() {
+            if (bla2.contains('stilig0')) {
+                chk0.checked = true;
+            }
+            else {
+                chk0.checked = false;
+            }
+            if (bla2.contains('stilig1')) {
+                chk1.checked = true;
+            }
+            else {
+                chk1.checked = false;
+            }
+            if (bla2.contains('stilig2')) {
+                chk2.checked = true;
+            }
+            else {
+                chk2.checked = false;
+            }
+            if (bla2.contains('stilig3')) {
+                chk3.checked = true;
+            }
+            else {
+                chk3.checked = false;
+            }
+            if (bla2.contains('stilig4')) {
+                chk4.checked = true;
+            }
+            else {
+                chk4.checked = false;
+            }
+        }
+        function chkTrue3() {
+            if (bla3.contains('stilig0')) {
+                chk0.checked = true;
+            }
+            else {
+                chk0.checked = false;
+            }
+            if (bla3.contains('stilig1')) {
+                chk1.checked = true;
+            }
+            else {
+                chk1.checked = false;
+            }
+            if (bla3.contains('stilig2')) {
+                chk2.checked = true;
+            }
+            else {
+                chk2.checked = false;
+            }
+            if (bla3.contains('stilig3')) {
+                chk3.checked = true;
+            }
+            else {
+                chk3.checked = false;
+            }
+            if (bla3.contains('stilig4')) {
+                chk4.checked = true;
+            }
+            else {
+                chk4.checked = false;
+            }
+        }
+        function chkTrue4() {
+            if (bla4.contains('stilig0')) {
+                chk0.checked = true;
+            }
+            else {
+                chk0.checked = false;
+            }
+            if (bla4.contains('stilig1')) {
+                chk1.checked = true;
+            }
+            else {
+                chk1.checked = false;
+            }
+            if (bla4.contains('stilig2')) {
+                chk2.checked = true;
+            }
+            else {
+                chk2.checked = false;
+            }
+            if (bla4.contains('stilig3')) {
+                chk3.checked = true;
+            }
+            else {
+                chk3.checked = false;
+            }
+            if (bla4.contains('stilig4')) {
+                chk4.checked = true;
+            }
+            else {
+                chk4.checked = false;
+            }
+        }
+        //style toggle
         function toggleStyle0() {
-            var isChecked = document.getElementById('chk0').checked;
-            document.getElementById('selected').classList.toggle('stilig0', isChecked);
-        }
+            var isChecked = chk0.checked;
+            if (bla0.contains('selected')) {
+                bla0.toggle('stilig0', isChecked);
+            }
+            if (bla1.contains('selected')) {
+                bla1.toggle('stilig0', isChecked);
+            }
+            if (bla2.contains('selected')) {
+                bla2.toggle('stilig0', isChecked);
+            }
+            if (bla3.contains('selected')) {
+                bla3.toggle('stilig0', isChecked);
+            }
+            if (bla4.contains('selected')) {
+                bla4.toggle('stilig0', isChecked);
+            }
+            }
         function toggleStyle1() {
-            var isChecked = document.getElementById('chk1').checked;
-            document.getElementById('selected').classList.toggle('stilig1', isChecked);
+            var isChecked = chk1.checked;
+            if (bla0.contains('selected')) {
+                bla0.toggle('stilig1', isChecked);
+            }
+            if (bla1.contains('selected')) {
+                bla1.toggle('stilig1', isChecked);
+            }
+            if (bla2.contains('selected')) {
+                bla2.toggle('stilig1', isChecked);
+            }
+            if (bla3.contains('selected')) {
+                bla3.toggle('stilig1', isChecked);
+            }
+            if (bla4.contains('selected')) {
+                bla4.toggle('stilig1', isChecked);
+            }
         }
         function toggleStyle2() {
-            var isChecked = document.getElementById('chk2').checked;
-            document.getElementById('selected').classList.toggle('stilig2', isChecked);
+            var isChecked = chk2.checked;
+            if (bla0.contains('selected')) {
+                bla0.toggle('stilig2', isChecked);
+            }
+            if (bla1.contains('selected')) {
+                bla1.toggle('stilig2', isChecked);
+            }
+            if (bla2.contains('selected')) {
+                bla2.toggle('stilig2', isChecked);
+            }
+            if (bla3.contains('selected')) {
+                bla3.toggle('stilig2', isChecked);
+            }
+            if (bla4.contains('selected')) {
+                bla4.toggle('stilig2', isChecked);
+            }
         }
         function toggleStyle3() {
-            var isChecked = document.getElementById('chk3').checked;
-            document.getElementById('selected').classList.toggle('stilig3', isChecked);
+            var isChecked = chk3.checked;
+            if (bla0.contains('selected')) {
+                bla0.toggle('stilig3', isChecked);
+            }
+            if (bla1.contains('selected')) {
+                bla1.toggle('stilig3', isChecked);
+            }
+            if (bla2.contains('selected')) {
+                bla2.toggle('stilig3', isChecked);
+            }
+            if (bla3.contains('selected')) {
+                bla3.toggle('stilig3', isChecked);
+            }
+            if (bla4.contains('selected')) {
+                bla4.toggle('stilig3', isChecked);
+            }
         }
         function toggleStyle4() {
-            var isChecked = document.getElementById('chk4').checked;
-            document.getElementById('selected').classList.toggle('stilig4', isChecked);
+            var isChecked = chk4.checked;
+            if (bla0.contains('selected')) {
+                bla0.toggle('stilig4', isChecked);
+            }
+            if (bla1.contains('selected')) {
+                bla1.toggle('stilig4', isChecked);
+            }
+            if (bla2.contains('selected')) {
+                bla2.toggle('stilig4', isChecked);
+            }
+            if (bla3.contains('selected')) {
+                bla3.toggle('stilig4', isChecked);
+            }
+            if (bla4.contains('selected')) {
+                bla4.toggle('stilig4', isChecked);
+            }
         }
     </script>
 </body>
