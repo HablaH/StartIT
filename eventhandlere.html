@@ -26,22 +26,27 @@
     <script>
         function testOnLoad() {
             document.getElementById('info').innerHTML += '<li>onload</li>';
+        console.log("onload");
         }
 
         function testOnChange() {
             document.getElementById('info').innerHTML += '<li>onchange</li>';
+        console.log("onchange");
         }
 
         function testOnInput() {
             document.getElementById('info').innerHTML += '<li>oninput</li>';
+        console.log("oninupt");
         }
 
         function testOnMouseOver() {
             document.getElementById('info').innerHTML += '<li>onmouseover</li>';
+        console.log("onmouseover");
         }
 
         function testOnMouseOut() {
             document.getElementById('info').innerHTML += '<li>onmouseout</li>';
+        console.log("onmouseout");
         }
         
         var i = 0;
@@ -49,10 +54,12 @@
 
         function dobbel() {
         document.getElementById('dbl').value = ++i;
+        console.log("dblklikk " + "++i");
         }
 
         function alert1() {
-        alert("du høyreklikket på denne");     
+        alert("du høyreklikket på denne");
+        console.log("rightclickalert");
         }
 
         function ned() {

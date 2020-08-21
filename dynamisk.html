@@ -36,7 +36,9 @@
     </div>
     <!--ramme-->
     <div>border size:
-        <input id="bslider" type="range" min="0" max="15" step="1" value="7" oninput="showDiv()" /> border color:
+        <input id="bslider" type="range" min="0" max="15" step="1" value="7" oninput="showDiv()" /> 
+        rounded border:<input id="brslider" type="range" min="0" max="20" step="1" value="10" oninput="showDiv()" />
+    border color:
         <select name="" id="bcolor" onchange="showDiv()">
             <option selected value="red">Red color</option>
             <option value="blue">Blue color</option>
@@ -60,10 +62,11 @@
         /*setter snarvar*/
         var resultDiv = document.getElementById('result');
         var resultHtmlDiv = document.getElementById('resultHtml');
-        //var slider = document.getElementById('sslider');
+        var slider = document.getElementById('sslider');
         var textIn = document.getElementById('textIn');
-        //var selector = document.getElementById('selector');
+        var selector = document.getElementById('selector');
         var borderSize = document.getElementById('bslider');
+        var borderRadius = document.getElementById('brslider');
         var borderColor = document.getElementById('bcolor');
         var borderType = document.getElementById('btype');
         /*resultat funksjon*/
@@ -71,18 +74,21 @@
         function showDiv() {
             var size = slider.value;
             var text = textIn.value;
-            //var color = selector.value;
+            var color = selector.value;
+            var size = slider.value
             var bS = borderSize.value;
+            var bR = borderRadius.value;
             var bC = borderColor.value;
             var bT = borderType.value;
 
             var backroundColor = 'background-color: ' + selector.value + ';';
-            var width = 'width: ' + sslider.value + 'px;';
-            var height = 'height: ' + sslider.value + 'px;';
+            var width = 'width: ' + size + 'px;';
+            var height = 'height: ' + size + 'px;';
             var border = 'border: ' + bS + 'px ' + bC + ' ' + bT + ';';
+            var br = 'border-radius: ' + bR + 'px;';
 
 
-            var style = 'style="' + backroundColor + width + height + border + '"';
+            var style = 'style="' + backroundColor + width + height + border + br + '"';
             resultDiv.innerHTML = '<div ' + style + '>' + text + '</div>';
             resultHtmlDiv.innerText = resultDiv.innerHTML;
         }
