@@ -1,0 +1,69 @@
+﻿﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body onload="testOnLoad()">
+    <p>Ferdighet 2a - Alternative eventhandlere: onchange osv.</p>
+    <input type="text" onchange="testOnChange()" oninput="testOnInput()" />
+    <h3 onmouseover="testOnMouseOver()" onmouseout="testOnMouseOut()">Test test test</h3>
+    <h2 id="info"></h2>
+
+    <div ondblclick="dobbel()">dobbelklikk <input type="text" id="dbl"  value="0"> </div>
+    <div oncontextmenu="alert1()">høyreklikk </div>
+    <div onkeyup="opp()" onkeydown="ned()"> trykk en tast <input type="text" id="pil"></div>
+    <hr>
+    
+    
+    
+    <a href="https://www.w3schools.com/jsref/dom_obj_event.asp">Mer informasjon her</a>
+    
+    
+    
+    
+    <script>
+        function testOnLoad() {
+            document.getElementById('info').innerHTML += '<li>onload</li>';
+        }
+
+        function testOnChange() {
+            document.getElementById('info').innerHTML += '<li>onchange</li>';
+        }
+
+        function testOnInput() {
+            document.getElementById('info').innerHTML += '<li>oninput</li>';
+        }
+
+        function testOnMouseOver() {
+            document.getElementById('info').innerHTML += '<li>onmouseover</li>';
+        }
+
+        function testOnMouseOut() {
+            document.getElementById('info').innerHTML += '<li>onmouseout</li>';
+        }
+        
+        var i = 0;
+        var a = 0;
+
+        function dobbel() {
+        document.getElementById('dbl').value = ++i;
+        }
+
+        function alert1() {
+        alert("du høyreklikket på denne");     
+        }
+
+        function ned() {
+        document.getElementById('pil').style.backgroundColor = "red";
+        }
+        
+        function opp() {
+        document.getElementById('pil').style.backgroundColor = "blue";
+        }
+        
+        
+    </script>
+</body>
+</html>

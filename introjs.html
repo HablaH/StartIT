@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="">
 
 <head>
@@ -146,7 +146,8 @@
 
     <script>
         /*kodelås*/
-        var result = null
+        var result = document.getElementById(result)
+        var result.innerHtml = null
 
         function trykk(tall) {
             document.getElementById('result').innerHTML += tall;
