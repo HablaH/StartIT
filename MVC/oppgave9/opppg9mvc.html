@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>oppgave9 i MVC</title>
+    <style>
+        .selected::before {
+            content: "🡆";
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+        //model
+        var selected;
+
+        //view
+        updateView();
+        function updateView() {
+            document.getElementById('app').innerHTML = `
+            <div onclick="selectedDiv(this)">en</div> <br/>
+            <div onclick="selectedDiv(this)">to</div> <br/>
+            <div onclick="selectedDiv(this)">tre</div> <br/>
+            <div onclick="selectedDiv(this)">fire</div> <br/>
+            <div onclick="selectedDiv(this)">fem</div> <br/>
+
+
+
+        `;
+        }
+        //controller
+        function selectedDiv() {
+            classlist.add('selected')
+
+            
+        }
+    </script>
+</body>
+</html>

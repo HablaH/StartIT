@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>dynamisk oppsett</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <button onclick="updateView()">oppdater</button>
+
+    <h1>Her kan du endre på boksen dynamisk</h1>
+
+    <!--størrelse-->
+    <div>
+        size:
+        <input type="range" min="100" max="500" step="10" value="${boxSize || 250}" oninput="boxSize = this.value; updateView();" />
+    </div>
+    <br />
+
+    <!--tekst-->
+    <div>
+        text input:
+        <input type="text" oninput="boxText = this.value; updateView();" value="skriv noe her" />
+
+        <!--farge-->
+        color-selector:
+        <select name="boxColor" onchange="boxColor = this.value; updateView();" value="selected">
+            <option value="none">Pick</option>
+            <option value="orange">Orange color</option>
+            <option value="purple">Purple color</option>
+            <option value="green">Green color</option>
+            <option value="magenta">Magenta color</option>
+        </select>
+    </div>
+
+    <!--ramme-->
+    <div>
+        border size:
+        <input type="range" min="0" max="15" step="1" value="${borderSize || 7}" oninput="borderSize = this.value; updateView();" />
+        rounded border:
+        <input type="range" min="0" max="20" step="1" value="${roundedBorder || 10}" oninput="roundedBorder = this.value; updateView();" />
+        border color:
+        <select name="borderColor" onchange="borderColor = this.value;" value="selected">
+            <option value="none">Pick</option>
+            <option value="red">Red color</option>
+            <option value="blue">Blue color</option>
+            <option value="green">Green color</option>
+            <option value="black">Black color</option>
+        </select> border type:
+        <select name="" onchange="borderType = this.value; updateView();" value="selected">
+            <option value="none">Pick</option>
+            <option value="dotted">Dotted</option>
+            <option value="dashed">Dashed</option>
+            <option value="solid">Solid</option>
+            <option value="double">Double</option>
+        </select>
+    </div>
+
+    <!--resultat-->
+    <hr> <br>
+
+    <div id="app"></div>
+
+
+
+    <script>
+        //model
+        var boxSize;
+        var boxText;
+        var boxColor;
+        var borderSize;
+        var roundedBorder;
+        var borderColor;
+        var borderType;
+
+        //view
+        updateView();
+        function updateView() {
+            document.getElementById('app').innerHTML = `
+
+
+                    <div style="background-color:${boxColor};
+                                height:${boxSize}px;
+                                width:${boxSize}px;
+                                border:${borderSize}px ${borderType} ${borderColor};
+                                border-radius:${roundedBorder}px;">
+                        ${boxText || 'her kommer det du skriver'}
+                    </div>
+                    <br>
+
+                    `;
+        }
+            //controller
+
+
+    </script>
+</body>
+
+</html>
