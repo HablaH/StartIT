@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+<style>
+    .display {
+        height: 70px;
+        width: 210px;
+        border: 1px solid black;
+        text-align:center;
+    }
+    .knapper {
+        height: 70px;
+        width: 70px;
+        text-align: center;
+        border: 1px solid black;
+        
+    }
+</style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+        
+        //model
+        var showDisplay = '';
+        var combination = "";
+        var numIn = [];
+        var correctCombination = [1,1,1,1]
+        //view
+        vis();
+        function vis() {
+            document.getElementById('app').innerHTML = `
+            <div class="display">${showDisplay}</div>
+                <table>
+                <tr>
+                    <td class="knapper" onclick="trykk(this.innerText)">1</td>
+                    <td class="knapper" onclick="trykk(this.innerText)">2</td>
+                    <td class="knapper" onclick="trykk(this.innerText)">3</td>
+                </tr>
+                <tr>
+                    <td class="knapper" onclick="trykk(this.innerText)">4</td>
+                    <td class="knapper" onclick="trykk(this.innerText)">5</td>
+                    <td class="knapper" onclick="trykk(this.innerText)">6</td>
+                </tr>
+                <tr>
+                    <td class="knapper" onclick="trykk(this.innerText)">7</td>
+                    <td class="knapper" onclick="trykk(this.innerText)">8</td>
+                    <td class="knapper" onclick="trykk(this.innerText)">9</td>
+                </tr>
+               </table>
+            `;
+        }
+        //controller
+        function trykk(x) {
+            if (numIn.length < 4) {
+                numIn.push(x);
+                numIn.forEach(myFunction)
+                showDisplay = combination;
+            } if (numIn.length == 4) {
+                checkCode();
+                return;
+            }
+            vis();
+        }
+        function myFunction(value) {
+            combination = combination += value + " ";
+        }
+        function checkCode() {
+            if (numIn[0,1,2,3] == correctCombination[0,1,2,3]) {
+                showDisplay = "Open";
+                vis();
+                return;
+            } else { numIn.splice(0, numIn.length);}
+            vis();
+        }
+    </script>
+</body>
+</html>
