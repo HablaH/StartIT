@@ -46,17 +46,25 @@
             showFirst();
         }
 
-        function showFirst() {
+        function showFirst()
+        {
             tekstB = 'Om vi sorterer de tre tekstene, er denne den første:<br/>';
-            if (in1 <= in2) {
-                if (in3 <= in1) tekstB += in3;
-                else textB += in1;
-            } else {
-                if (in3 <= in2) tekstB += in3;
-                else tekstB += in2;
+            if (in1 <= in2 && in1 <= in3)
+            {
+                tekstB += in1;
             }
+            else if (in2 <= in3)
+            {
+                tekstB += in2;
+            }
+            else
+            {
+                tekstB += in3;
+            }
+            
             vis();
         }
+        
        
     </script>
 </body>

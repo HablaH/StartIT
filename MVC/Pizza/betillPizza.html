@@ -1,0 +1,108 @@
+﻿﻿
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+    <div id="app"></div>
+
+    <!--<h3>Pizza-bestilling</h3>
+    <div id="info" style="padding-bottom: 20px;">Gjør ett valg på hver linje:</div>
+
+    Bunn: <input id="tykkBunn" type="radio" name="bunn" onchange="info()" />Tykk
+    <input id="tynnBunn" type="radio" name="bunn" onchange="info()" />Tynn <br />
+
+    Fyll: <input id="fyllTaco" type="radio" name="fyll" onchange="info()" />Taco
+    <input id="fyllKylling" type="radio" name="fyll" onchange="info()" />Kylling
+    <input id="fyllPepperoni" type="radio" name="fyll" onchange="info()" />Pepperoni<br />
+
+    Størrelse: <input id="stor" type="radio" name="str" onchange="info()" />Stor
+    <input id="middels" type="radio" name="str" onchange="info()" />Middels
+    <input id="liten" type="radio" name="str" onchange="info()" />Liten<br />
+
+    <button id="bestill" disabled="" onclick="alert('Bestilt!');">Bestill</button>
+    <ul>
+        <li>Oppgave: Legg til et fyll til</li>
+        <li>Oppgave: Legg til en ting til i pizza-bestillingen, for eksempel firkantet eller rund pizza</li>
+    </ul>-->
+    <script>
+
+        //model
+        var bunn = 'ikke valgt';
+        var fyll = 'ikke valgt';
+        var size = 'ikke valgt';
+        var form = 'ikke valgt';
+
+        
+
+
+        //view
+
+        updateView();
+        function updateView() {
+            document.getElementById('app').innerHTML = `
+                <h3>Pizza-bestilling<h3>
+                <div style="padding-bottom: 20px;">Gjør ett valg på hver linje:</div>
+
+                Bunn:
+                <input type="radio" value="Tykk" name="bunn" onchange="bunnValg(this.value)" />Tykk
+                <input type="radio" value="Tynn" name="bunn" onchange="bunnValg(this.value)" />Tynn
+                <input type="radio" value="Glutenfri" name="bunn" onchange="bunnValg(this.value)" />Glutenfri<br/>
+                
+                Fyll: 
+                <input type="radio" value="Taco" name="fyll" onchange="fyllValg(this.value)" />Taco
+                <input type="radio" value="Vegetar" name="fyll" onchange="fyllValg(this.value)" />Vegetar
+                <input type="radio" value="Kylling" name="fyll" onchange="fyllValg(this.value)" />Kylling
+                <input type="radio" value="Pepperoni" name="fyll" onchange="fyllValg(this.value)" />Pepperoni<br />
+
+                Størrelse:
+                <input type="radio" value="Stor" name="str" onchange="strValg(this.value)" />Stor
+                <input type="radio" value="Middels" name="str" onchange="strValg(this.value)" />Middels
+                <input type="radio" value="Liten" name="str" onchange="strValg(this.value)" />Liten<br />
+
+                Form:
+                <input type="radio" value="Rund" name="form" onchange="formValg(this.value)" />Rund
+                <input type="radio" value="Rektangel" name="form" onchange="formValg(this.value)" />Rektangel
+                <input type="radio" value="Triangel" name="form" onchange="formValg(this.value)" />Triangel<br />
+                
+                <hr/>
+
+                <div>Bunn: ${bunn}<br/>
+                     Fyll: ${fyll}<br/>
+                     Størrelse: ${size}<br/>
+                     Form: ${form}<br/>
+                </div>
+
+                <button ${(bunn == 'ikke valgt' || fyll == 'ikke valgt' || size == 'ikke valgt' || form == 'ikke valgt') ? 'disabled' : ''} onclick="alert('En ${size}, ${form} pizza med ${bunn} bunn, ${fyll} fyll, Bestilt!');">Bestill</button>
+
+            `;
+
+        }
+
+        //controller
+       
+        function bunnValg(newBunn) {
+            bunn = newBunn;
+            updateView();
+        }
+        function fyllValg(newFyll) {
+            fyll = newFyll;
+            updateView();
+        }
+        function strValg(newStr) {
+            size = newStr;
+            updateView();
+        }
+        function formValg(newForm) {
+            form = newForm;
+            updateView();
+        }
+
+       
+    </script>
+</body>
+</html>

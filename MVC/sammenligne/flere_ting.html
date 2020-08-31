@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+<style>
+    .denne {
+        width:200px;
+        height:200px;
+        border:2px solid orange;
+
+    }
+</style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+        //model
+        var bcolor = '';
+        var tcolor = 'black';
+        var tcolorAlt = 'white';
+        //view
+
+        updateView();
+
+        function updateView() {
+            document.getElementById('app').innerHTML = `
+            <div class="denne" style="background-color:${bcolor};color:${tcolor};">HEISANN!</div>
+            <select name="color" onchange="bcolor = this.value; colorChange();" value="${bcolor}" selected="${bcolor}">
+                <option value="">Pick one</option>
+                <option value="black">black</option>
+                <option value="darkblue">dark blue</option>
+                <option value="lightgray">light gray</option>
+                <option value="lightgreen">light green</option>
+                <option value="lightred">light red</option>
+            </select>`;
+        }
+        //controller
+
+        function colorChange()
+        {
+            if (bcolor == 'black' || bcolor == 'darkblue')
+            {
+                tcolor = 'white';
+            }
+            else if (bcolor == 'lightgray' || bcolor == 'lightgreen' || bcolor == 'lightred')
+            {
+                tcolor = 'black';
+            }
+            updateView();
+        }
+    </script>
+</body>
+</html>
