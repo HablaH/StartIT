@@ -80,7 +80,7 @@ function checkWinning()
         || winCheck(2, 5, 8)
         || winCheck(0, 4, 8)
         || winCheck(2, 4, 6)) {
-        
+        console.log(winner)
     }
 }
 
