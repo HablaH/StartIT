@@ -49,6 +49,7 @@ function setX(i, txt) {
         board.splice(i, 1, 'X');
         x = Ledige();
         checkWinning()
+        showBoard();
         setRandomO(x);
         showBoard();
     } else { return;}
@@ -73,8 +74,8 @@ function checkWinning()
 {
     // kjør winCheck på alle vanrette, loddrette og diagonale
     if (winCheck(0, 1, 2)
-        || winCheck(3, 4, 5)
         || winCheck(6, 7, 8)
+        || winCheck(3, 4, 5)
         || winCheck(0, 3, 6)
         || winCheck(1, 4, 7)
         || winCheck(2, 5, 8)
