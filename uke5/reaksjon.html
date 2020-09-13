@@ -6,12 +6,17 @@
     <meta charset="utf-8">
     <title>slider spill i mvc</title>
     <style type="text/css">
+        :root {
+            --ruterbredde: 5;
+        }
         .brett {
             display: grid;
-            grid-template-columns: 100px 100px 100px 100px 100px;
+            grid-template-columns: repeat(var(--ruterbredde), 100px);
             grid-gap: 10px;
         }
-
+        button {
+            
+        }
         .rute {
             background-color: lightgray;
             width: 100px;
@@ -28,7 +33,7 @@
     </style>
 </head>
 <body>
-    <div class="brett" id="app"></div>
+    <div id="app"></div>
     <script src="reaksjon.js"></script>
 </body>
 </html>

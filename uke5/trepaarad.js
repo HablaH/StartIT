@@ -1,4 +1,5 @@
 //model
+
 var board = ['', '', '', '', '', '', '', '', ''];
 var blankBoard = ['', '', '', '', '', '', '', '', ''];
 var winner = '';
@@ -6,6 +7,7 @@ let boardMatrix = document.getElementById("app");
 var ledige = [];
 
 //view
+
 showBoard();
 function showBoard()
 {
@@ -16,7 +18,6 @@ function showBoard()
     boardMatrix.innerHTML = html;
     
 }
-
 
 //controller
 
@@ -55,6 +56,7 @@ function setX(i, txt) {
     } else { return;}
     
 }
+
 function setRandomO(i) {
     //set O i ledig rute, check win,
     if (ledige.length != 0) {
