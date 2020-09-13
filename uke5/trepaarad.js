@@ -100,12 +100,23 @@ function winCheck(p1, p2, p3) {
 
 function gameOver() {
     //sjekk om spillet er over
-    if (board[0, 1, 2, 3, 4, 5, 6, 7, 8] == blankBoard[0, 1, 2, 3, 4, 5, 6, 7, 8] ) { return false; }
-    else if (ledige.length == 0 && winner == '') {
+    if (board[0, 1, 2, 3, 4, 5, 6, 7, 8] == blankBoard[0, 1, 2, 3, 4, 5, 6, 7, 8]) {
+        return false;
+    } else if (winner =='X') {
+        return true;
+    } else if (winner == 'O') {
+        return true;
+    } else if (ledige.length == 0 && winner == '') {
         winner = 'Draw';
         return true;
+    } else { return false; }
+}
+function compareArray() {
+    for (let i = 0; i < board.length; i++) {
+        if (board[i] === blankBoard[i]) {
+            return true;
+        } else {
+            return false;
+        }
     }
-    else if (winner != '') {
-        return true;
-    } else { return false;}
 }
