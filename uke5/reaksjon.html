@@ -4,13 +4,15 @@
 <head>
 
     <meta charset="utf-8">
-    <title>slider spill i mvc</title>
+    <title>reaksjon</title>
     <style type="text/css">
+        /*variabel rutebredde ut ifra antallet ruter*/
         :root {
             --ruterbredde: 5;
         }
         .brett {
             display: grid;
+            /*grid bruker rutebredde fra var*/
             grid-template-columns: repeat(var(--ruterbredde), 100px);
             grid-gap: 10px;
         }
