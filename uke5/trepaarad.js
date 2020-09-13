@@ -53,7 +53,9 @@ function setX(i, txt) {
         showBoard();
         setRandomO(x);
         showBoard();
-    } else { return;}
+    } else {
+        return;
+    }
     
 }
 
@@ -82,9 +84,7 @@ function checkWinning()
         || winCheck(1, 4, 7)
         || winCheck(2, 5, 8)
         || winCheck(0, 4, 8)
-        || winCheck(2, 4, 6)) {
-        console.log(winner)
-    }
+        || winCheck(2, 4, 6)) { }
 }
 
 function winCheck(p1, p2, p3) {
@@ -95,28 +95,31 @@ function winCheck(p1, p2, p3) {
     if (c1 != '' && c1 == c2 && c1 == c3) {
         winner = c1;
         return true;
-    } else { return false;}
+    } else if (compareArray() != true && ledige.length == 0) {
+        winner = 'Draw';
+    } else { return false; }
 }
 
 function gameOver() {
     //sjekk om spillet er over
-    if (board[0, 1, 2, 3, 4, 5, 6, 7, 8] == blankBoard[0, 1, 2, 3, 4, 5, 6, 7, 8]) {
-        return false;
-    } else if (winner =='X') {
+    if (winner =='X') {
         return true;
     } else if (winner == 'O') {
         return true;
-    } else if (ledige.length == 0 && winner == '') {
-        winner = 'Draw';
+    } else if (winner == 'Draw') {
         return true;
-    } else { return false; }
+    } else if(compareArray()) {
+            false;
+    }
 }
 function compareArray() {
+    var a;
+    var b;
     for (let i = 0; i < board.length; i++) {
-        if (board[i] === blankBoard[i]) {
-            return true;
-        } else {
-            return false;
-        }
+        a += board[i];
+        b += blankBoard[i];
     }
+    if (a == b) {
+        return true;
+    } else { return false;}
 }
