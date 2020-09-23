@@ -36,7 +36,7 @@
         </li>
         <li>
             Legg til kolonne for frist. Bruk input-tag med type="date".
-            Konvertering til visningsformat: <tt>new Date("2019-02-13").toLocaleDateString()</tt>
+            Konvertering til visningsformat: <tt>new Date("2019-02-13").toLocaleDateString()</tt> *Solved*
         </li>
         <li>
             Lag kolonne for "gjort dato" som fylles ut automatisk når man
@@ -97,6 +97,7 @@
     function createHtmlRow(i) {
         const task = tasks[i];
         const checkedHtml = task.isDone ? 'checked="checked"' : '';
+        task.finishedDate = task.isDone ? task.finishedDate = new Date().toLocaleDateString() : '';
         if (!task.editMode)
             return `<tr>
                             <td>${task.person}</td>
@@ -124,7 +125,8 @@
     }
 
     function changeIsDone(checkbox, index) {
-        tasks[index].isDone = checkbox.checked;
+        task = tasks[index]
+        task.isDone = checkbox.checked;
         
 
         show();
