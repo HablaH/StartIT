@@ -26,7 +26,7 @@
     </style>
 </head>
 <body>
-    <input type="date" />
+    
 
     Oppgaver
     <ol>
@@ -46,8 +46,9 @@
 
     <table id="tasksTable"></table>
     <p>
-        <input id="taskPerson" type="text"/>
+        <input id="taskPerson" type="text" />
         <input id="taskDescription" type="text" />
+        <input id="taskDeadline"type="date" />
         <button onclick="addTask()">Legg til oppgave</button>
     </p>
     <script>
@@ -61,16 +62,19 @@
 
     // Controller
     var taskDescriptionInput = document.getElementById('taskDescription');
-    var taskPersonInput = document.getElementById('taskPerson');
+        var taskPersonInput = document.getElementById('taskPerson');
+        var taskDeadlineInput = document.getElementById('taskDeadline');
 
     function addTask() {
         tasks.push({
             person: taskPersonInput.value,
             description: taskDescriptionInput.value,
+            deadline: taskDeadlineInput.value,
             isDone: false
         });
         taskPersonInput.value = '';
         taskDescriptionInput.value = '';
+        taskDeadlineInput.value = '';
         show();
     }
 
